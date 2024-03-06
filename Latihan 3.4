@@ -1,0 +1,29 @@
+def celcius_to_fahrenheit(celsius):
+  """Konversi Celcius ke Fahrenheit."""
+  return lambda celsius: (9/5) * celsius + 32
+
+def celcius_to_reamur(celsius):
+  """Konversi Celcius ke Reamur."""
+  return lambda celsius: 0.8 * celsius
+
+# Contoh penggunaan
+c = 100
+
+# Konversi Celcius ke Fahrenheit
+fahrenheit = celcius_to_fahrenheit(c)
+print(f"Celcius {c} derajat sama dengan {fahrenheit(c)} derajat Fahrenheit.")
+
+# Konversi Celcius ke Reamur
+reamur = celcius_to_reamur(c)
+print(f"Celcius {c} derajat sama dengan {reamur(c)} derajat Reamur.")
+
+# Test case
+test_cases = [
+  (0, 32),
+  (80, 64),
+]
+
+for c, expected_f in test_cases:
+  fahrenheit = celcius_to_fahrenheit(c)
+  actual_f = fahrenheit(c)
+  print(f"Test case: Celcius {c} derajat, diharapkan Fahrenheit {expected_f}, aktual Fahrenheit {actual_f}")
