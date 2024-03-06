@@ -1,0 +1,39 @@
+def cek_angka(a, b, c):
+  """
+  Mengecek apakah ketiga parameter memenuhi ketentuan:
+  - Ketiga parameter berbeda semua.
+  - Ada kemungkinan jika diambil dua parameter dan dijumlahkan hasilnya sama dengan parameter lainnya.
+
+  Args:
+    a: Bilangan pertama.
+    b: Bilangan kedua.
+    c: Bilangan ketiga.
+
+  Returns:
+    True jika semua ketentuan terpenuhi, False jika tidak.
+  """
+
+  # Cek perbedaan nilai
+  if a == b or b == c or a == c:
+    return False
+
+  # Cek kemungkinan penjumlahan
+  for i in range(3):
+    sum_dua = a + b if i == 0 else b + c if i == 1 else a + c
+    if sum_dua == (a if i == 0 else b if i == 1 else c):
+      return True
+
+  # Jika semua kondisi tidak terpenuhi
+  return False
+
+# Contoh penggunaan
+a = 1
+b = 2
+c = 3
+
+hasil = cek_angka(a, b, c)
+
+if hasil:
+  print("Ketiga bilangan memenuhi semua ketentuan.")
+else:
+  print("Ketiga bilangan tidak memenuhi semua ketentuan.")
